@@ -9,15 +9,10 @@
         <version>2.7.4</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-
     <groupId>com.usa</groupId>
-
     <artifactId>Reto3D</artifactId>
-
     <version>0.0.1-SNAPSHOT</version>
-
     <name>Reto3D</name>
-
     <description>Reto3D</description>
 
     <properties>

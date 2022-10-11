@@ -34,6 +34,7 @@ public class Costume implements Serializable {
 
     @OneToMany(cascade = {CascadeType.PERSIST}, mappedBy = "costume")
     @JsonIgnoreProperties({"costume","messages"})
+    private List<Reservation> reservations;
 
     public Integer getId() {
         return id;
