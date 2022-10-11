@@ -1,5 +1,7 @@
 package com.usa.reto3d.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
 import java.io.Serializable;
 
@@ -12,6 +14,10 @@ public class Score implements Serializable {
     private Integer idCalificacion;
     private Integer calificacion;
     private String mensajes;
+
+    @OneToOne
+    @JsonIgnoreProperties("score")
+    private Reservation reservation;
 
     public Integer getIdCalificacion() {
         return idCalificacion;
