@@ -31,6 +31,34 @@ public class DisfrazService {
         }
     }
 
+    public Costume update(Costume costume){
+        if(costume.getId()!=null){
+            Optional<Costume> e = disfrazRepository.getDisfraz(costume.getId());
+            if (e.isPresent()){if (costume.getName()!=null){
+                    e.get().setName(costume.getName());
+                }
+                if (costume.getBrand()!=null){
+                    e.get().setBrand(costume.getBrand());
+                }
+                if (costume.getDescription()!=null){
+                    e.get().setDescription(costume.getDescription());
+                }
+                if (costume.getYear()!=null){
+                    e.get().setYear(costume.getYear());
+                }
+                if (costume.getCategory()!=null){
+                    e.get().setCategory(costume.getCategory());
+                }
+                disfrazRepository.save(e.get());
+                return e.get();
+            }else {
+                return costume;
+            }
+        }else {
+            return costume;
+        }
+    }
+
     public boolean delete(int id){
         boolean flag=false;
         Optional<Costume> e = disfrazRepository.getDisfraz(id);
