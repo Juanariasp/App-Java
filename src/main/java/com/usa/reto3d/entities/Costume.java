@@ -22,7 +22,7 @@ public class Costume implements Serializable {
 
     private String description;
 
-    
+
     @ManyToOne
     @JoinColumn(name="categoryId")
     @JsonIgnoreProperties("costumes")
