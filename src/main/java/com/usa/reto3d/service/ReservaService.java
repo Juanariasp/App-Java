@@ -19,10 +19,10 @@ public class ReservaService {
     public Optional<Reservation> getReserva(int id){ return reservaRepository.getReserva(id); }
 
     public Reservation save(Reservation r){
-        if(r.getIdReserva()==null){
+        if(r.getIdReservation()==null){
             return reservaRepository.save(r);
         }else {
-            Optional<Reservation> e = reservaRepository.getReserva(r.getIdReserva());
+            Optional<Reservation> e = reservaRepository.getReserva(r.getIdReservation());
             if(e.isPresent()){
                 return r;
             }else {

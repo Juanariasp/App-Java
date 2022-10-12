@@ -19,10 +19,10 @@ public class CalificacionService {
     public Optional<Score> getCalificacion(int id){ return calificacionRepository.getCalificacion(id); }
 
     public Score save(Score c){
-        if(c.getIdCalificacion()==null){
+        if(c.getIdScore()==null){
             return calificacionRepository.save(c);
         }else {
-            Optional<Score> e = calificacionRepository.getCalificacion(c.getIdCalificacion());
+            Optional<Score> e = calificacionRepository.getCalificacion(c.getIdScore());
             if(e.isPresent()){
                 return c;
             }else {

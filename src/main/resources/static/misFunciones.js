@@ -26,7 +26,7 @@ function guardarInformacion(){
         error:function(xhr, respuesta){
             alert("Error de peticion")
         }
-    });
+    }       );
 }
 
 function editarInformacion(){

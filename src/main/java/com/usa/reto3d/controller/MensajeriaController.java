@@ -20,7 +20,9 @@ public class MensajeriaController {
 
     @PostMapping("/save")
     @ResponseStatus(HttpStatus.CREATED)
-    public Message save(@RequestBody Message m){ return mensajeriaService.save(m); }
+    public Message save(@RequestBody Message message) {
+        return mensajeriaService.save(message);
+    }
 
 
 }

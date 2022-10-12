@@ -19,10 +19,10 @@ public class MensajeriaService {
     public Optional<Message> getMensaje(int id){ return mensajeRepository.getMensaje(id); }
 
     public Message save(Message m){
-        if(m.getIdMensajes()==null){
+        if(m.getIdMessage()==null){
             return mensajeRepository.save(m);
         }else {
-            Optional<Message> e = mensajeRepository.getMensaje((m.getIdMensajes()));
+            Optional<Message> e = mensajeRepository.getMensaje((m.getIdMessage()));
             if(e.isPresent()){
                 return m;
             }else {

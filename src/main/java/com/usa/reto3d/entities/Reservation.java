@@ -12,9 +12,9 @@ public class Reservation implements Serializable {
 
     @Id
     @GeneratedValue (strategy = GenerationType.IDENTITY)
-    private Integer idReserva;
-    private Date fechaInicio;
-    private Date fechaEntrega;
+    private Integer idReservation;
+    private Date startDate;
+    private Date devolutionDate;
 
     @ManyToOne
     @JoinColumn(name = "costumeId")
@@ -30,27 +30,51 @@ public class Reservation implements Serializable {
     @JsonIgnoreProperties("reservation")
     private Score score;
 
-    public Integer getIdReserva() {
-        return idReserva;
+    public Integer getIdReservation() {
+        return idReservation;
     }
 
-    public void setIdReserva(Integer idReserva) {
-        this.idReserva = idReserva;
+    public void setIdReservation(Integer idReservation) {
+        this.idReservation = idReservation;
     }
 
-    public Date getFechaInicio() {
-        return fechaInicio;
+    public Date getStartDate() {
+        return startDate;
     }
 
-    public void setFechaInicio(Date fechaInicio) {
-        this.fechaInicio = fechaInicio;
+    public void setStartDate(Date startDate) {
+        this.startDate = startDate;
     }
 
-    public Date getFechaEntrega() {
-        return fechaEntrega;
+    public Date getDevolutionDate() {
+        return devolutionDate;
     }
 
-    public void setFechaEntrega(Date fechaEntrega) {
-        this.fechaEntrega = fechaEntrega;
+    public void setDevolutionDate(Date devolutionDate) {
+        this.devolutionDate = devolutionDate;
+    }
+
+    public Costume getCostume() {
+        return costume;
+    }
+
+    public void setCostume(Costume costume) {
+        this.costume = costume;
+    }
+
+    public Client getClient() {
+        return client;
+    }
+
+    public void setClient(Client client) {
+        this.client = client;
+    }
+
+    public Score getScore() {
+        return score;
+    }
+
+    public void setScore(Score score) {
+        this.score = score;
     }
 }

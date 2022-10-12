@@ -11,35 +11,35 @@ public class Score implements Serializable {
 
     @Id
     @GeneratedValue (strategy = GenerationType.IDENTITY)
-    private Integer idCalificacion;
-    private Integer calificacion;
-    private String mensajes;
+    private Integer idScore;
+    private Integer calification;
+    private String messages;
 
     @OneToOne
     @JsonIgnoreProperties("score")
     private Reservation reservation;
 
-    public Integer getIdCalificacion() {
-        return idCalificacion;
+    public Integer getIdScore() {
+        return idScore;
     }
 
-    public void setIdCalificacion(Integer idCalificacion) {
-        this.idCalificacion = idCalificacion;
+    public void setIdScore(Integer idScore) {
+        this.idScore = idScore;
     }
 
-    public Integer getCalificacion() {
-        return calificacion;
+    public Integer getCalification() {
+        return calification;
     }
 
-    public void setCalificacion(Integer calificacion) {
-        this.calificacion = calificacion;
+    public void setCalification(Integer calification) {
+        this.calification = calification;
     }
 
-    public String getMensajes() {
-        return mensajes;
+    public String getMessages() {
+        return messages;
     }
 
-    public void setMensajes(String mensajes) {
-        this.mensajes = mensajes;
+    public void setMessages(String messages) {
+        this.messages = messages;
     }
 }
