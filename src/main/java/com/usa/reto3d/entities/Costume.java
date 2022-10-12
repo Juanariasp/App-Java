@@ -17,12 +17,12 @@ public class Costume implements Serializable {
     private String name;
 
     private String brand;
-
-    private String description;
-
     @Column(name="years")
     private Integer year;
 
+    private String description;
+
+    
     @ManyToOne
     @JoinColumn(name="categoryId")
     @JsonIgnoreProperties("costumes")
