@@ -28,6 +28,7 @@ public class Costume implements Serializable {
     @JsonIgnoreProperties("costumes")
     private Category category;
 
+
     @OneToMany(cascade = {CascadeType.PERSIST}, mappedBy = "costume")
     @JsonIgnoreProperties({"costume","client"})
     private List<Message> messages;
