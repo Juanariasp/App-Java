@@ -1,6 +1,7 @@
 package com.usa.reto3d.service;
 
 import com.usa.reto3d.entities.Admins;
+import com.usa.reto3d.entities.Score;
 import com.usa.reto3d.repository.AdminsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -28,6 +29,29 @@ public class AdminsService {
             }else {
                 return adminsRepository.save(a);
             }
+        }
+    }
+
+    public Admins update(Admins admins){
+        if(admins.getIdAdmin()!=null){
+            Optional<Admins> e = adminsRepository.getAdmin(admins.getIdAdmin());
+            if (e.isPresent()){
+                if (admins.getName()!=null){
+                    e.get().setName(admins.getName());
+                }
+                if (admins.getPassword()!=null){
+                    e.get().setPassword(admins.getPassword());
+                }
+                if (admins.getEmail()!=null){
+                    e.get().setEmail(admins.getEmail());
+                }
+                adminsRepository.save(e.get());
+                return e.get();
+            }else {
+                return admins;
+            }
+        }else {
+            return admins;
         }
     }
 

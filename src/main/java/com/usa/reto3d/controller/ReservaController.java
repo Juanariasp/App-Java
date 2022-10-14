@@ -7,6 +7,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/Reservation")
@@ -21,4 +22,19 @@ public class ReservaController {
     @PostMapping("/save")
     @ResponseStatus(HttpStatus.CREATED)
     public Reservation save(@RequestBody Reservation r){ return reservaService.save(r); }
+    @GetMapping("/{id}")
+    public Optional<Reservation> getCostume(@PathVariable("id") int id){ return reservaService.getReserva(id); }
+
+    @PutMapping("/update")
+    @ResponseStatus(HttpStatus.CREATED)
+    public Reservation update(@RequestBody Reservation r){
+        return reservaService.update(r);
+    }
+
+    @DeleteMapping("/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public boolean delete(@PathVariable("id") int id){
+        return reservaService.delete(id);
+    }
+
 }

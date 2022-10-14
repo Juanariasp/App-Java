@@ -34,7 +34,8 @@ public class DisfrazService {
     public Costume update(Costume costume){
         if(costume.getId()!=null){
             Optional<Costume> e = disfrazRepository.getDisfraz(costume.getId());
-            if (e.isPresent()){if (costume.getName()!=null){
+            if (e.isPresent())
+            {if (costume.getName()!=null){
                     e.get().setName(costume.getName());
                 }
                 if (costume.getBrand()!=null){
