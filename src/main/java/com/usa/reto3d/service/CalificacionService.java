@@ -1,5 +1,6 @@
 package com.usa.reto3d.service;
 
+import com.usa.reto3d.entities.Client;
 import com.usa.reto3d.entities.Score;
 import com.usa.reto3d.repository.CalificacionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,6 +29,26 @@ public class CalificacionService {
             }else {
                 return calificacionRepository.save(c);
             }
+        }
+    }
+
+    public Score update(Score score){
+        if(score.getIdScore()!=null){
+            Optional<Score> e = calificacionRepository.getCalificacion(score.getIdScore());
+            if (e.isPresent()){
+                if (score.getCalification()!=null){
+                    e.get().setCalification(score.getCalification());
+                }
+                if (score.getMessages()!=null){
+                    e.get().setMessages(score.getMessages());
+                }
+                calificacionRepository.save(e.get());
+                return e.get();
+            }else {
+                return score;
+            }
+        }else {
+            return score;
         }
     }
 

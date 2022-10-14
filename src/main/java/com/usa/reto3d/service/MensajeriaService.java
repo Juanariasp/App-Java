@@ -1,5 +1,6 @@
 package com.usa.reto3d.service;
 
+import com.usa.reto3d.entities.Client;
 import com.usa.reto3d.entities.Message;
 import com.usa.reto3d.repository.MensajeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,6 +31,30 @@ public class MensajeriaService {
             }
         }
     }
+
+    public Message update(Message message){
+        if(message.getIdMessage()!=null){
+            Optional<Message> e = mensajeRepository.getMensaje(message.getIdMessage());
+            if (e.isPresent()){
+                if (message.getMessageText()!=null){
+                    e.get().setMessageText(message.getMessageText());
+                }
+                if (message.getCostume()!=null){
+                    e.get().setCostume(message.getCostume());
+                }
+                if (message.getClient()!=null){
+                    e.get().setClient(message.getClient());
+                }
+                mensajeRepository.save(e.get());
+                return e.get();
+            }else {
+                return message;
+            }
+        }else {
+            return message;
+        }
+    }
+
 
     public boolean delete(int id){
         boolean flag=false;

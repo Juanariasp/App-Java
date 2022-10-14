@@ -1,5 +1,6 @@
 package com.usa.reto3d.service;
 
+import com.usa.reto3d.entities.Client;
 import com.usa.reto3d.entities.Reservation;
 import com.usa.reto3d.repository.ReservaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,6 +29,32 @@ public class ReservaService {
             }else {
                 return reservaRepository.save(r);
             }
+        }
+    }
+
+    public Reservation update(Reservation reservation){
+        if(reservation.getIdReservation()!=null){
+            Optional<Reservation> e = reservaRepository.getReserva(reservation.getIdReservation());
+            if (e.isPresent()){
+                if (reservation.getStartDate()!=null){
+                    e.get().setStartDate(reservation.getStartDate());
+                }
+                if (reservation.getDevolutionDate()!=null){
+                    e.get().setDevolutionDate(reservation.getDevolutionDate());
+                }
+                if (reservation.getCostume()!=null){
+                    e.get().setCostume(reservation.getCostume());
+                }
+                if (reservation.getClient()!=null){
+                    e.get().setClient(reservation.getClient());
+                }
+                reservaRepository.save(e.get());
+                return e.get();
+            }else {
+                return reservation;
+            }
+        }else {
+            return reservation;
         }
     }
 

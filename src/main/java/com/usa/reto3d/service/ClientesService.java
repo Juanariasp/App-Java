@@ -1,6 +1,7 @@
 package com.usa.reto3d.service;
 
 import com.usa.reto3d.entities.Client;
+import com.usa.reto3d.entities.Costume;
 import com.usa.reto3d.repository.ClientesRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -28,6 +29,32 @@ public class ClientesService {
             }else {
                 return clientesRepository.save(c);
             }
+        }
+    }
+
+    public Client update(Client client){
+        if(client.getIdClient()!=null){
+            Optional<Client> e = clientesRepository.getCliente(client.getIdClient());
+            if (e.isPresent()){
+                if (client.getName()!=null){
+                e.get().setName(client.getName());
+                }
+                if (client.getEmail()!=null){
+                    e.get().setEmail(client.getEmail());
+                }
+                if (client.getAge()!=null){
+                    e.get().setAge(client.getAge());
+                }
+                if (client.getPassword()!=null){
+                    e.get().setPassword(client.getPassword());
+                }
+                clientesRepository.save(e.get());
+                return e.get();
+            }else {
+                return client;
+            }
+        }else {
+            return client;
         }
     }
 

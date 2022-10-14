@@ -1,6 +1,7 @@
 package com.usa.reto3d.service;
 
 import com.usa.reto3d.entities.Category;
+import com.usa.reto3d.entities.Client;
 import com.usa.reto3d.repository.CategoriaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -28,6 +29,26 @@ public class CategoriaService {
             }else {
                 return categoriaRepository.save(c);
             }
+        }
+    }
+
+    public Category update(Category category){
+        if(category.getId()!=null){
+            Optional<Category> e = categoriaRepository.getCategoria(category.getId());
+            if (e.isPresent()){
+                if (category.getName()!=null){
+                    e.get().setName(category.getName());
+                }
+                if (category.getDescription()!=null){
+                    e.get().setDescription(category.getDescription());
+                }
+                categoriaRepository.save(e.get());
+                return e.get();
+            }else {
+                return category;
+            }
+        }else {
+            return category;
         }
     }
 
