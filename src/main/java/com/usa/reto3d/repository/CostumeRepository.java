@@ -1,7 +1,7 @@
 package com.usa.reto3d.repository;
 
 import com.usa.reto3d.entities.Costume;
-import com.usa.reto3d.repository.crudRepository.DisfrazCrudRepository;
+import com.usa.reto3d.repository.crudRepository.CostumeCrudRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -9,10 +9,10 @@ import java.util.List;
 import java.util.Optional;
 
 @Repository
-public class DisfrazRepository {
+public class CostumeRepository {
 
     @Autowired
-    private DisfrazCrudRepository disfrazCrudRepository;
+    private CostumeCrudRepository disfrazCrudRepository;
 
     public List<Costume> getAll(){ return (List<Costume>) disfrazCrudRepository.findAll();}
 

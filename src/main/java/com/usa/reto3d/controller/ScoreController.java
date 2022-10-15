@@ -1,9 +1,7 @@
 package com.usa.reto3d.controller;
 
-
-import com.usa.reto3d.entities.Category;
 import com.usa.reto3d.entities.Score;
-import com.usa.reto3d.service.CategoriaService;
+import com.usa.reto3d.service.ScoreService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -12,31 +10,31 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/api/Category")
-public class CategoriaController {
+@RequestMapping("/api/Score")
+public class ScoreController {
 
     @Autowired
-    private CategoriaService categoriaService;
+    private ScoreService calificacionService;
 
     @GetMapping("/all")
-    public List<Category> getAll(){ return categoriaService.getAll(); }
+    public List<Score> getAll(){ return calificacionService.getAll(); }
 
     @PostMapping("/save")
     @ResponseStatus(HttpStatus.CREATED)
-    public Category save(@RequestBody Category c){ return categoriaService.save(c); }
+    public Score save(@RequestBody Score c){ return calificacionService.save(c);}
 
     @GetMapping("/{id}")
-    public Optional<Category> getCostume(@PathVariable("id") int id){ return categoriaService.getCategoria(id); }
+    public Optional<Score> getCostume(@PathVariable("id") int id){ return calificacionService.getCalificacion(id); }
 
     @PutMapping("/update")
     @ResponseStatus(HttpStatus.CREATED)
-    public Category update(@RequestBody Category c){
-        return categoriaService.update(c);
+    public Score update(@RequestBody Score s){
+        return calificacionService.update(s);
     }
 
     @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public boolean delete(@PathVariable("id") int id){
-        return categoriaService.delete(id);
+        return calificacionService.delete(id);
     }
 }

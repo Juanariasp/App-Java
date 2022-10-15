@@ -1,8 +1,7 @@
 package com.usa.reto3d.service;
 
-import com.usa.reto3d.entities.Client;
 import com.usa.reto3d.entities.Score;
-import com.usa.reto3d.repository.CalificacionRepository;
+import com.usa.reto3d.repository.ScoreRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -10,10 +9,10 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class CalificacionService {
+public class ScoreService {
 
     @Autowired
-    private CalificacionRepository calificacionRepository;
+    private ScoreRepository calificacionRepository;
 
     public List<Score> getAll(){ return calificacionRepository.getAll(); }
 

@@ -1,8 +1,7 @@
 package com.usa.reto3d.controller;
 
-import com.usa.reto3d.entities.Client;
 import com.usa.reto3d.entities.Message;
-import com.usa.reto3d.service.MensajeriaService;
+import com.usa.reto3d.service.MessageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -12,10 +11,10 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/Message")
-public class MensajeriaController {
+public class MessageController {
 
     @Autowired
-    private MensajeriaService mensajeriaService;
+    private MessageService mensajeriaService;
 
     @GetMapping("/all")
     public List<Message> getAll(){ return mensajeriaService.getAll(); }

@@ -1,8 +1,7 @@
 package com.usa.reto3d.service;
 
 import com.usa.reto3d.entities.Category;
-import com.usa.reto3d.entities.Client;
-import com.usa.reto3d.repository.CategoriaRepository;
+import com.usa.reto3d.repository.CategoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -10,10 +9,10 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class CategoriaService {
+public class CategoryService {
 
     @Autowired
-    private CategoriaRepository categoriaRepository;
+    private CategoryRepository categoriaRepository;
 
     public List<Category> getAll(){ return categoriaRepository.getAll(); }
 

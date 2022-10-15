@@ -1,8 +1,7 @@
 package com.usa.reto3d.service;
 
-import com.usa.reto3d.entities.Client;
 import com.usa.reto3d.entities.Message;
-import com.usa.reto3d.repository.MensajeRepository;
+import com.usa.reto3d.repository.MessageRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -10,10 +9,10 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class MensajeriaService {
+public class MessageService {
 
     @Autowired
-    private MensajeRepository mensajeRepository;
+    private MessageRepository mensajeRepository;
 
     public List<Message> getAll(){ return mensajeRepository.getAll(); }
 

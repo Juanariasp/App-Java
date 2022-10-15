@@ -1,7 +1,7 @@
 package com.usa.reto3d.controller;
 
 import com.usa.reto3d.entities.Costume;
-import com.usa.reto3d.service.DisfrazService;
+import com.usa.reto3d.service.CostumeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -11,10 +11,10 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/Costume")
-public class DisfrazController {
+public class CostumeController {
 
     @Autowired
-    private DisfrazService disfrazService;
+    private CostumeService disfrazService;
 
     @GetMapping("/all")
     public List<Costume> getAll(){ return disfrazService.getAll(); }
